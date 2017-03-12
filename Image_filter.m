@@ -13,5 +13,6 @@ image_filter(:,:,3) = imgaussfilt(image(:,:,3),sigma);
 
 axes(handles.axes1);
 imshow(image_filter);
+% colorThresholder(image_filter);
 end
 

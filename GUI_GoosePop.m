@@ -22,7 +22,7 @@ function varargout = GUI_GoosePop(varargin)
 
 % Edit the above text to modify the response to help GUI_GoosePop
 
-% Last Modified by GUIDE v2.5 14-Feb-2017 23:03:11
+% Last Modified by GUIDE v2.5 10-Mar-2017 19:29:29
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -186,6 +186,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 handles.image_filter = Image_filter(handles);
+imwrite(handles.image_filter,'Filtered_img.bmp');
 guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton3.
@@ -217,3 +218,11 @@ function edit4_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+Identify_geeseV2(handles);

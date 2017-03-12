@@ -2,7 +2,6 @@ function [] = Identify_Geese( handles )
 
 cform = makecform('srgb2lab');
 lab_image = applycform(handles.image_filter,cform);
-
 ab = double(lab_image(:,:,2:3));
 nrows = size(ab,1);
 ncols = size(ab,2);
@@ -55,13 +54,22 @@ clear largestInd size1 size2 size3 size4 Y geese4;
 
 objects = bwconncomp(geese1,4);
 n1 = objects.NumObjects;
+axes(handles.axes2);
+imshow(geese1);
+
 dataGeese1 = regionprops(objects,'basic');
 objects = bwconncomp(geese2,4);
 n2 = objects.NumObjects;
+axes(handles.axes3);
+imshow(geese2);
+
 dataGeese2 = regionprops(objects,'basic');
 objects = bwconncomp(geese3,4);
 n3= objects.NumObjects;
 dataGeese3 = regionprops(objects,'basic');
+axes(handles.axes4);
+imshow(geese3);
+
 
 histData = zeros(2,1);
 for i = 1:size(dataGeese1,1)
