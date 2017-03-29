@@ -13,6 +13,7 @@ nColors = str2double(get(handles.edit4,'String'));
 [cluster_idx, cluster_center] = kmeans(ab,nColors,'distance','sqEuclidean','Replicates',3);
 pixel_labels = reshape(cluster_idx,nrows,ncols);
 
+
 % create 4 binary image masks
 geese1 = pixel_labels == 1;
 size1 = sum(sum(geese1));

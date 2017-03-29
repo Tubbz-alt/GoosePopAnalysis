@@ -9,7 +9,6 @@ imshow(image);
 focLength = str2double(get(handles.edit1, 'String'));
 flyHeight = str2double(get(handles.edit2, 'String'));
 
-
 [imgWidthPix,imgHeightPix] = size(image);
 imgWidth = imgWidthPix * flyHeight / (focLength * 1000);
 imgHeight = imgHeightPix * flyHeight / (focLength * 1000);

@@ -1,11 +1,16 @@
+function [] = part5kfactorcalc(handles)
 %% Part 5: Identifying the nesting pairs
 
 % List all geese
+bwimage1 = handles.geese1_locations;
+% bwimage2 = handles.geese2_location_bw;
+% bwimage3 = handles.geese2_location_bw;
+
 
 k = 1;
-for i = 1:size(bwimage,1)
-    for j = 1:size(bwimage,2)
-        if bwimage(i,j) == 1
+for i = 1:size(bwimage1,1)
+    for j = 1:size(bwimage1,2)
+        if bwimage1(i,j) == 1
             geesearray(k,1) = i;
             geesearray(k,2) = j;
             k = k + 1;
@@ -13,13 +18,17 @@ for i = 1:size(bwimage,1)
     end
 end
 
-% calculate 3 metres
-
+% calculate 3 metres in pixels
+% formula: pixWidth = meters per pixel -> (pixels in 3m)= 3m / ( n meters per pixel)
+pix = get(handles.uitable1);
+pixHeight = pix.Data(2,2);
+pixWidth = pix.Data(2,1);
+imgWidth = pix.Data(1,2);
+imgHeight = pix.Data(1,1);
 pixels3m = 3 / pixWidth;
 
 
 % identify nests
-
 k = 1;
 for i = 1:size(geesearray,1)
     for j = i:size(geesearray,1)
@@ -31,7 +40,7 @@ for i = 1:size(geesearray,1)
     end
 end
 
-bwnests = false(size(bwimage,1),size(bwimage,2));
+bwnests = false(size(bwimage1,1),size(bwimage1,2));
 for i = 1:size(nests,1)
     if bwnests(nests(i,1),nests(i,2)) == 1
         bwnests(nests(i,1),nests(i,2)) = 0;
@@ -39,6 +48,7 @@ for i = 1:size(nests,1)
         bwnests(nests(i,1),nests(i,2)) = 1;
     end
 end
+
 
 m = round(imgWidth);
 n = size(nests,1);
@@ -60,6 +70,8 @@ for i = 1:sizes(2)
     end
 end
 k = sum/(lambda * n);
-figure;
+axes(handles.axes12);
+figure(15)
 plot(t,k);
 
+end
