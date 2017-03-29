@@ -1,4 +1,3 @@
-
 function SimpleColorDetectionByHue()
 clc;	% Clear command window.
 clear;	% Delete all variables.
