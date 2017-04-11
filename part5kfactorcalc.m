@@ -21,7 +21,6 @@ end
 % calculate 3 metres in pixels
 % formula: pixWidth = meters per pixel -> (pixels in 3m)= 3m / ( n meters per pixel)
 pix = get(handles.uitable1);
-pixHeight = pix.Data(2,2);
 pixWidth = pix.Data(2,1);
 imgWidth = pix.Data(1,2);
 imgHeight = pix.Data(1,1);
