@@ -61,7 +61,7 @@ for i = 1:sizes(2)
 end
 k = sum/(lambda * n);
 maximumk = max(k);
-for i = 1:size(k,2)
+for i = 1:(size(k,2) - 10)
     if k(i) == maximumk
         k = k(1:i+10);
         t = t(1:i+10);
