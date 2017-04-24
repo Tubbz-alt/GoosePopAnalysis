@@ -22,7 +22,7 @@ function varargout = GUI_GoosePop(varargin)
 
 % Edit the above text to modify the response to help GUI_GoosePop
 
-% Last Modified by GUIDE v2.5 17-Mar-2017 11:41:43
+% Last Modified by GUIDE v2.5 24-Apr-2017 15:50:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -239,3 +239,12 @@ part5kfactorcalc(handles);
 
 
 
+
+
+% --- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+handles = Identify_geeseeV3(handles);
+guidata(hObject,handles);

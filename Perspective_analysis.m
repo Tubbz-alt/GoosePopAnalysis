@@ -10,10 +10,14 @@ focLength = str2double(get(handles.edit1, 'String'));
 flyHeight = str2double(get(handles.edit2, 'String'));
 
 [imgWidthPix,imgHeightPix] = size(image);
-imgWidth = imgWidthPix * flyHeight / (focLength/ 1000);
-imgHeight = imgHeightPix * flyHeight / (focLength / 1000);
-pixWidth = imgWidth / imgWidthPix;
-pixHeight = imgHeight / imgHeightPix;
+% imgWidth = imgWidthPix * flyHeight / (focLength/ 1000);
+% imgHeight = imgHeightPix * flyHeight / (focLength / 1000);
+% pixWidth = imgWidth / imgWidthPix;
+% pixHeight = imgHeight / imgHeightPix;
+imgWidth = 8;
+imgHeight = 4.88;
+pixWidth = 4.88/488;
+pixHeight = 8/800;
 
 image_properties = [imgWidth, imgHeight; pixWidth, pixHeight];
 Rows = ({'Image', 'Pixel'});

@@ -134,6 +134,7 @@ function [handles] = Identify_geeseV2(handles)
 %     hold on
 %     viscircles(centroids,radii);
 %     hold off
+
     geese_locations_bw = false(size(coloredObjectsMask));
     img_size = size(coloredObjectsMask);
     rows_y = img_size(1);
@@ -142,29 +143,18 @@ function [handles] = Identify_geeseV2(handles)
        column_x = floor(centroids(i,1));
        row_y = rows_y - floor(centroids(i,2));
        geese_locations_bw(row_y,column_x)=true;
-%        for p =1:3
-%            geese_locations_bw(row_y+p, column_x+p)=true;
-%            geese_locations_bw(row_y-p, column_x+p)=true;
-%            geese_locations_bw(row_y+p, column_x-p)=true;
-%            geese_locations_bw(row_y-p, column_x-p)=true;
-%        end
-    end
-    
-    
+    end  
    %plot the nest locations
+   
    if j==1
-%    axes(handles.axes9);
-% figure(18);
    handles.geese1_locations = geese_locations_bw;
    elseif j==2
-%    axes(handles.axes10);
    handles.geese2_locations = geese_locations_bw;
    elseif j==3
-%    axes(handles.axes11);
    handles.geese3_locations = geese_locations_bw;
    end
-%    imshow(geese_locations_bw);
-%    
-    end
+   
+   
+   end
 end
 

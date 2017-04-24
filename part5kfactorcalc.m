@@ -2,10 +2,20 @@ function [] = part5kfactorcalc(handles)
 %% Part 5: Identifying the nesting pairs
 
 % List all geese
-bwimage = handles.geese1_locations;
+for jj=1:3
+    if jj==1
+        bwimage = handles.geese1_locations;
+        axes(handles.axes22);
+    elseif jj==2
+        bwimage = handles.geese2_locations;
+        axes(handles.axes23);
+    elseif jj==3
+        bwimage = handles.geese3_locations;
+        axes(handles.axes24);
+    end
 
-matfile = 'geese';
-eval(['save ' matfile ' bwimage']);
+% matfile = 'geese';
+% eval(['save ' matfile ' bwimage']);
 
 % bwimage2 = handles.geese2_location_bw;
 % bwimage3 = handles.geese2_location_bw;
@@ -28,11 +38,11 @@ pixWidth = pix.Data(2,1);
 pixHeight = pix.Data(2,2);
 imgWidth = pix.Data(1,2);
 imgHeight = pix.Data(1,1);
-
-
 pixels3m = 3 / pixWidth;
 
+
 % identify nests
+try
 k = 1;
 for i = 1:size(geesearray,1)
     for j = i + 1:size(geesearray,1)
@@ -43,7 +53,13 @@ for i = 1:size(geesearray,1)
         end
     end
 end
-size(nests)
+nests
+catch
+    display('No nests identified in group number:');
+    display(jj);
+    break
+end
+
 
 bwnests = false(size(bwimage,1),size(bwimage,2));
 for i = 1:size(nests,1)
@@ -54,7 +70,8 @@ for i = 1:size(nests,1)
     end
 end
 
-m = round(imgWidth/2);
+
+m = round(imgWidth)/2;
 n = size(nests,1);
 t = 0:1:m;
 A = imgWidth * imgHeight * pixHeight * pixWidth;
@@ -84,10 +101,10 @@ for i = 1:(size(k,2)-10)
 end
 t = t * pixWidth;
 
-axes(handles.axes12);
 plot(t,k);
 % title('Spatial Staistical Analysis of Goose Population 1:');
 % xlabel('distance (m)');
 % ylabel('Ripley''s K factor');
 
+end
 end
