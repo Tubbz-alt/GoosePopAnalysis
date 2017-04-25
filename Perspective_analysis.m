@@ -22,7 +22,7 @@ flyHeight = str2double(get(handles.edit2, 'String'));
 % =======
 
 pixWidth = 2 * flyHeight * tan(31.09 * pi / 180) / imgWidthPix;
-pixHeight = 2 * flyHeight * tan(31.09 * pi / 180) / imgHeightPix;
+pixHeight = 2 * flyHeight * tan(18.71 * pi / 180) / imgHeightPix;
 % >>>>>>> Stashed changes
 
 image_properties = [imgWidth, imgHeight; pixWidth, pixHeight];
