@@ -9,7 +9,9 @@ imshow(image);
 focLength = str2double(get(handles.edit1, 'String'));
 flyHeight = str2double(get(handles.edit2, 'String'));
 
-[imgWidthPix,imgHeightPix] = size(image);
+[imgHeightPix, imgWidthPix ~] = size(image)
+
+
 % imgWidth = imgWidthPix * flyHeight / (focLength/ 1000);
 % imgHeight = imgHeightPix * flyHeight / (focLength / 1000);
 % pixWidth = imgWidth / imgWidthPix;
@@ -23,6 +25,9 @@ flyHeight = str2double(get(handles.edit2, 'String'));
 
 pixWidth = 2 * flyHeight * tan(31.09 * pi / 180) / imgWidthPix;
 pixHeight = 2 * flyHeight * tan(18.71 * pi / 180) / imgHeightPix;
+
+imgWidth = pixWidth*imgWidthPix;
+imgHeight = pixHeight*imgHeightPix;
 % >>>>>>> Stashed changes
 
 image_properties = [imgWidth, imgHeight; pixWidth, pixHeight];
