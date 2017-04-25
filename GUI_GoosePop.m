@@ -194,7 +194,14 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-Identify_Geese(handles);
+% clear handles.geese1_locations
+% clear handles.geese2_locations
+% clear handles.geese3_locations
+% guidata(hObject, handles);
+
+handles = Identify_Geese(handles);
+guidata(hObject, handles);
+
 
 
 
@@ -225,6 +232,11 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% clear handles.geese1_locations
+% clear handles.geese2_locations
+% clear handles.geese3_locations
+% guidata(hObject, handles);
+
 handles = Identify_geeseV2(handles);
 guidata(hObject,handles);
 
@@ -246,5 +258,10 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% clear handles.geese1_locations
+% clear handles.geese2_locations
+% clear handles.geese3_locations
+% guidata(hObject, handles);
+% handles
 handles = Identify_geeseeV3(handles);
 guidata(hObject,handles);

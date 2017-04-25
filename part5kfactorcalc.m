@@ -4,12 +4,18 @@ function [] = part5kfactorcalc(handles)
 % List all geese
 for jj=1:3
     if jj==1
+%         clearvars -except handles.geese1_locations* handles.geese2_locations handles.geese3_locations 
+        clearvars -except handles jj
         bwimage = handles.geese1_locations;
         axes(handles.axes22);
     elseif jj==2
+%         clearvars -except handles.geese1_locations* handles.geese2_locations handles.geese3_locations 
+        clearvars -except handles jj
         bwimage = handles.geese2_locations;
         axes(handles.axes23);
     elseif jj==3
+%         clearvars -except handles.geese1_locations* handles.geese2_locations handles.geese3_locations 
+        clearvars -except handles jj
         bwimage = handles.geese3_locations;
         axes(handles.axes24);
     end
@@ -40,7 +46,7 @@ imgWidth = pix.Data(1,2);
 imgHeight = pix.Data(1,1);
 pixels3m = 3 / pixWidth;
 
-
+geesearray
 % identify nests
 try
 k = 1;
@@ -53,14 +59,14 @@ for i = 1:size(geesearray,1)
         end
     end
 end
-nests
+nests;
 catch
     display('No nests identified in group number:');
     display(jj);
-    break
+    continue
 end
 
-
+nests
 bwnests = false(size(bwimage,1),size(bwimage,2));
 for i = 1:size(nests,1)
     if bwnests(nests(i,1),nests(i,2)) == 1
@@ -74,7 +80,8 @@ end
 m = round(imgWidth)/2;
 n = size(nests,1);
 t = 0:1:m;
-A = imgWidth * imgHeight * pixHeight * pixWidth;
+% A = imgWidth * imgHeight * pixHeight * pixWidth;
+A= imgWidth*imgHeight;
 lambda = n/A;
 sizes = size(t);
 sum = zeros(1,sizes(2));
@@ -90,7 +97,9 @@ for i = 1:sizes(2)
         end
     end
 end
+sum
 k = sum/(lambda * n);
+k
 maximumk = max(k);
 for i = 1:(size(k,2)-10)
     if k(i) == maximumk
@@ -99,9 +108,10 @@ for i = 1:(size(k,2)-10)
         break;
     end
 end
-t = t * pixWidth;
+% t = t * pixWidth;
 
 plot(t,k);
+
 % title('Spatial Staistical Analysis of Goose Population 1:');
 % xlabel('distance (m)');
 % ylabel('Ripley''s K factor');

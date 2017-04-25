@@ -1,4 +1,4 @@
-function [] = Identify_Geese( handles )
+function [handles] = Identify_Geese( handles )
 
 cform = makecform('srgb2lab');
 lab_image = applycform(handles.image_filter,cform);

@@ -55,6 +55,8 @@ imshow(BWfinal);
 
 coloredObjectsMask = cast(BWfinal, 'like', rgbImage);
 maskedRGB=coloredObjectsMask.*rgbImage;
+figure(24);
+imshow(maskedRGB);
 
 
 %% Part 2: Goose Classification
@@ -109,6 +111,12 @@ viscircles([geesearray3(:,1) -geesearray3(:,2)],radius3);
 xlim([0, imgsize(2)]);
 ylim([-imgsize(1),0]);
 
+geesearray1
+geesearray2
+geesearray3
+
+size(geesearray1)
+
 handles.geese1_array = geesearray1;
 handles.geese2_array = geesearray2;
 handles.geese3_array = geesearray3;
@@ -117,7 +125,7 @@ handles.geese3_array = geesearray3;
 geese_locs1_bw = false(imgsize);
 rows_y=imgsize(1);
 columns_x = imgsize(2);
-for i = 1:size(geesearray1)
+for i = 1:size(geesearray1,1)
     column_x = floor(geesearray1(i,1));
     row_y = floor(geesearray1(i,2));
     geese_locs1_bw(row_y, column_x) = true;
@@ -125,7 +133,7 @@ end
 handles.geese1_locations = geese_locs1_bw;
 
 geese_locs2_bw = false(imgsize);
-for i = 1:size(geesearray2)
+for i = 1:size(geesearray2,1)
     column_x = floor(geesearray2(i,1));
     row_y = floor(geesearray2(i,2));
     geese_locs2_bw(row_y, column_x) = true;
@@ -133,7 +141,7 @@ end
 handles.geese2_locations = geese_locs2_bw;
 
 geese_locs3_bw = false(imgsize);
-for i = 1:size(geesearray3)
+for i = 1:size(geesearray3,1)
     column_x = floor(geesearray3(i,1));
     row_y = floor(geesearray3(i,2));
     geese_locs3_bw(row_y, column_x) = true;
