@@ -14,16 +14,8 @@ flyHeight = str2double(get(handles.edit2, 'String'));
 % imgHeight = imgHeightPix * flyHeight / (focLength / 1000);
 % pixWidth = imgWidth / imgWidthPix;
 % pixHeight = imgHeight / imgHeightPix;
-% <<<<<<< Updated upstream
-% imgWidth = 8;
-% imgHeight = 4.88;
-% pixWidth = 4.88/488;
-% pixHeight = 8/800;
-% =======
 
-pixWidth = 2 * flyHeight * tan(31.09 * pi / 180) / imgWidthPix;
-pixHeight = 2 * flyHeight * tan(31.09 * pi / 180) / imgHeightPix;
-% >>>>>>> Stashed changes
+pixWidth = imgWidthPix 
 
 image_properties = [imgWidth, imgHeight; pixWidth, pixHeight];
 Rows = ({'Image', 'Pixel'});
