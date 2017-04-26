@@ -63,18 +63,20 @@ nests;
 catch
     display('No nests identified in group number:');
     display(jj);
+    plot(0,0);
     continue
 end
 
 nests
 bwnests = false(size(bwimage,1),size(bwimage,2));
 for i = 1:size(nests,1)
-    if bwnests(nests(i,1),nests(i,2)) == 1
-        bwnests(nests(i,1),nests(i,2)) = 0;
-    else
+%     if bwnests(nests(i,1),nests(i,2)) == 1
+%         bwnests(nests(i,1),nests(i,2)) = 0;
+%     else
         bwnests(nests(i,1),nests(i,2)) = 1;
-    end
+%     end
 end
+
 
 
 m = round(imgWidth)/2;

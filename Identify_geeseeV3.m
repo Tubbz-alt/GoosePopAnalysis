@@ -50,13 +50,8 @@ seD = strel('diamond',1);
 BWfinal = imerode(BWnobord,seD);
 BWfinal = imerode(BWfinal,seD);
 
-axes(handles.axes17);
-imshow(BWfinal);
-
 coloredObjectsMask = cast(BWfinal, 'like', rgbImage);
 maskedRGB=coloredObjectsMask.*rgbImage;
-figure(24);
-imshow(maskedRGB);
 handles.maskedRGB = maskedRGB;
 
 
@@ -116,7 +111,6 @@ geesearray1
 geesearray2
 geesearray3
 
-size(geesearray1)
 
 handles.geese1_array = geesearray1;
 handles.geese2_array = geesearray2;
