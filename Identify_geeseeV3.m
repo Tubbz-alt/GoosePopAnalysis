@@ -57,6 +57,7 @@ coloredObjectsMask = cast(BWfinal, 'like', rgbImage);
 maskedRGB=coloredObjectsMask.*rgbImage;
 figure(24);
 imshow(maskedRGB);
+handles.maskedRGB = maskedRGB;
 
 
 %% Part 2: Goose Classification

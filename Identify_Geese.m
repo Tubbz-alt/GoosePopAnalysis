@@ -1,7 +1,7 @@
 function [handles] = Identify_Geese( handles )
 
 cform = makecform('srgb2lab');
-lab_image = applycform(handles.image_filter,cform);
+lab_image = applycform(handles.maskedRGB,cform);
 ab = double(lab_image(:,:,2:3));
 nrows = size(ab,1);
 ncols = size(ab,2);
